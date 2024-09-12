@@ -10,7 +10,7 @@ function Todo({todo, deleteTodo, toggleCompleted, toggleIsEditing, editTodo, sub
     <div className="todo">
       <p
         onClick={() => { toggleCompleted(todo.id); }} 
-        className={ todo.isCompleted ? "completed" : " " }
+        className={ `content ${todo.isCompleted ? "completed" : " "}` }
       >
         {todo.content}
       </p>

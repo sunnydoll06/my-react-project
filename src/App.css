@@ -63,7 +63,12 @@ body {
     line-height: 1.5;
 }
 
+.content {
+    width: 80px;
+    overflow-wrap: break-word;
+}
+
 .completed {
-    opacity: 0.4;
+    opacity: 0.5;
     text-decoration: line-through 2px red;
 }
