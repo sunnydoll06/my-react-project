@@ -1,16 +1,7 @@
 {
   "posts": [
     {
-      "todos": [
-        {
-          "content": "159753",
-          "date": "2024-09-25",
-          "time": "00:41",
-          "id": "76d16f36-f900-4f48-8ade-4d35e7334d7c",
-          "isCompleted": false,
-          "isEditing": false
-        }
-      ],
+      "todos": [],
       "id": "1"
     }
   ]

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { API_GET_ITEM } from "./Constants";
+import { API_GET_ITEM } from "../component/Constants";
 import "bootstrap/dist/css/bootstrap.min.css";
+import List from "./List";
 
 async function fetchItem(setItems) {
   const res = await fetch(API_GET_ITEM);
@@ -17,6 +18,8 @@ function Bootstrap() {
   }, []);
 
   return (
+    <>
+    <List />
     <table className="table">
       <thead>
         <tr>
@@ -33,6 +36,7 @@ function Bootstrap() {
         ))}
       </tbody>
     </table>
+    </>
   );
 }
 

@@ -68,13 +68,18 @@ body {
     text-decoration: line-through 2px red;
 }
 
-.button {
+ul {
     background-color: darkgrey;
-    margin: 20px 30px;
     padding: 10px;
-    border-radius: 5px;
     cursor: pointer;
     color: rgb(63, 63, 63);
-    border: grey 3px solid;
+    list-style-type: none;
+    display: flex;
+}
+
+.text {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
 }
 

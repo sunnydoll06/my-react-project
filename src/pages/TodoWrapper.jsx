@@ -1,8 +1,9 @@
-import CreateForm from "./CreateForm";
-import Todo from "./Todo";
+import CreateForm from "../component/CreateForm";
+import Todo from "../component/Todo";
 import { v4 } from "uuid";
-import { API_GET_DATA } from "./Constants";
+import { API_GET_DATA } from "../component/Constants";
 import { useState, useEffect, useRef } from "react";
+import List from "./List";
 
 async function fetchTodo(setTodos) {
   const res = await fetch(API_GET_DATA);
@@ -100,6 +101,7 @@ function TodoWrapper() {
 
   return (
     <>
+      <List />
       <div className="wrapper">
         <h1>待辦事項</h1>
         <CreateForm 
@@ -118,7 +120,7 @@ function TodoWrapper() {
               />
             );
         })}
-      </div>
+      </div>  
     </>
   );
 }
