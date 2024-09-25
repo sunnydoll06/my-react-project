@@ -67,3 +67,14 @@ body {
     opacity: 0.4;
     text-decoration: line-through 2px red;
 }
+
+.button {
+    background-color: darkgrey;
+    margin: 20px 30px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(63, 63, 63);
+    border: grey 3px solid;
+}
+

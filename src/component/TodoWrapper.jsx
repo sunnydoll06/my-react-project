@@ -1,9 +1,41 @@
-import { useEffect, useRef, useState } from "react";
 import CreateForm from "./CreateForm";
 import Todo from "./Todo";
 import { v4 } from "uuid";
+import { API_GET_DATA } from "./Constants";
+import { useState, useEffect, useRef } from "react";
 
-function TodoWrapper({ todos, setTodos, submittingTodos }) {
+async function fetchTodo(setTodos) {
+  const res = await fetch(API_GET_DATA);
+  const { todos } = await res.json();
+  setTodos(todos);
+}
+
+async function fetchSetTodo(todos) {
+  await fetch(API_GET_DATA, {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({ todos }),
+  });
+}
+
+function TodoWrapper() {
+  const [todos, setTodos] = useState([]);
+  const submittingTodos = useRef(false);
+
+  useEffect(() => {
+    if (!submittingTodos.current) {
+      return;
+    }
+    fetchSetTodo(todos)
+    .then(todos => submittingTodos.current = false);
+  }, [todos]);
+
+  useEffect(() => {
+    fetchTodo(setTodos);
+  }, []);
+
   const addTodo = function (content, date, time) {
     submittingTodos.current = true;
     setTodos([
@@ -67,25 +99,27 @@ function TodoWrapper({ todos, setTodos, submittingTodos }) {
   };
 
   return (
-    <div className="wrapper">
-      <h1>待辦事項</h1>
-      <CreateForm 
-        addTodo={addTodo} 
-        submittingTodos={submittingTodos}/>
-      {todos.map((todo) => {
-        return (
-          <Todo
-            toggleCompleted={toggleCompleted}
-            toggleIsEditing={toggleIsEditing}
-            editTodo={editTodo}
-            todo={todo}
-            key={todo.id}
-            deleteTodo={deleteTodo}
-            submittingTodos={submittingTodos}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="wrapper">
+        <h1>待辦事項</h1>
+        <CreateForm 
+          addTodo={addTodo} 
+          submittingTodos={submittingTodos}/>
+        {todos.map((todo) => {
+          return (
+            <Todo
+              toggleCompleted={toggleCompleted}
+              toggleIsEditing={toggleIsEditing}
+              editTodo={editTodo}
+              todo={todo}
+              key={todo.id}
+              deleteTodo={deleteTodo}
+              submittingTodos={submittingTodos}
+              />
+            );
+        })}
+      </div>
+    </>
   );
 }
 
