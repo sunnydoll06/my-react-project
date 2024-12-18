@@ -83,3 +83,12 @@ ul {
     margin: 0 10px;
 }
 
+.input {
+    width: 300px;
+    margin-right: 10px;
+    margin-left: 40px;
+}
+
+.button {
+    width: 80px;
+}

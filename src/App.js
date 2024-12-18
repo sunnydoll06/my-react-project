@@ -1,5 +1,4 @@
 import "./App.css";
-import List from "./pages/List";
 import Bootstrap from "./pages/Bootstrap";
 import TodoWrapper from "./pages/TodoWrapper";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

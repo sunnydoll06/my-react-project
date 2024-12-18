@@ -3,7 +3,7 @@ import Todo from "../component/Todo";
 import { v4 } from "uuid";
 import { API_GET_DATA } from "../component/Constants";
 import { useState, useEffect, useRef } from "react";
-import List from "./List";
+import List from "../component/List";
 
 async function fetchTodo(setTodos) {
   const res = await fetch(API_GET_DATA);
