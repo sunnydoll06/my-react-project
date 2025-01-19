@@ -1,16 +1,16 @@
 import "./App.css";
 import Bootstrap from "./pages/Bootstrap";
 import TodoWrapper from "./pages/TodoWrapper";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<TodoWrapper />} />
         <Route path="/bootstrap" element={<Bootstrap />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
